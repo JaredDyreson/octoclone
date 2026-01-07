@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "GitHub Clone URL Prepender",
+  "version": "1.0.0",
+  "description": "Automatically prepends 'git clone ' to GitHub repository URLs when copying from the clone dropdown",
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "permissions": [
+    "clipboardWrite"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": ["content-scripts/github-clone-prepender.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "github-clone-prepender@example.com",
+      "strict_min_version": "54.0"
+    }
+  }
+}
